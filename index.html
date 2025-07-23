@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invidious Playlist Embedder</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- README Section -->
+    <div class="readme-section">
+        <div class="container">
+            <h2>📖 Setup & Deployment</h2>
+            <p>
+                <strong>GitHub Pages Setup:</strong> Fork this repository, ensure files are in root directory (index.html, style.css, app.js), 
+                enable GitHub Pages in Settings → Pages → Branch: main, Folder: / (root). 
+                Access via https://&lt;username&gt;.github.io/&lt;repo&gt;/ (not the code view). 
+                Paste YouTube video/playlist URLs to embed via Invidious with automatic instance failover.
+            </p>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <div class="hero-background"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="icon">🎥</span>
+                    Invidious Playlist Embedder
+                </h1>
+                <p class="hero-subtitle">
+                    Privacy-focused YouTube video and playlist embedding with automatic instance failover
+                </p>
+                
+                <!-- URL Input Section -->
+                <div class="input-section">
+                    <div class="input-wrapper">
+                        <input type="text" 
+                               id="urlInput" 
+                               class="url-input" 
+                               placeholder="Paste YouTube video or playlist URL here..."
+                               autocomplete="off">
+                        <label for="urlInput" class="input-label">YouTube URL</label>
+                    </div>
+                    <button id="loadBtn" class="btn btn--primary">
+                        <span class="btn-text">Load</span>
+                        <span class="btn-loader"></span>
+                    </button>
+                </div>
+
+                <!-- Status Messages -->
+                <div id="statusMessage" class="status-message"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content Section -->
+    <div class="main-content" id="mainContent">
+        <div class="container">
+            <div class="content-grid">
+                <!-- Video Player -->
+                <div class="video-section">
+                    <div class="video-container">
+                        <iframe id="videoPlayer" 
+                                class="video-player" 
+                                src="" 
+                                frameborder="0" 
+                                allowfullscreen>
+                        </iframe>
+                        <div class="video-overlay" id="videoOverlay">
+                            <div class="video-placeholder">
+                                <div class="placeholder-icon">📹</div>
+                                <p>Video will appear here</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="video-info" id="videoInfo">
+                        <h3 class="video-title"></h3>
+                        <p class="video-description"></p>
+                    </div>
+                </div>
+
+                <!-- Playlist Sidebar -->
+                <div class="playlist-section">
+                    <div class="playlist-header">
+                        <h3>
+                            <span class="playlist-icon">📋</span>
+                            <span id="playlistTitle">Playlist</span>
+                        </h3>
+                        <div class="playlist-count" id="playlistCount">0 videos</div>
+                    </div>
+                    <div class="playlist-container" id="playlistContainer">
+                        <div class="playlist-placeholder">
+                            <div class="placeholder-icon">🎬</div>
+                            <p>Playlist items will appear here</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Instance Status -->
+    <div class="instance-status" id="instanceStatus">
+        <div class="container">
+            <div class="status-info">
+                <span class="status-label">Current Instance:</span>
+                <span class="status-value" id="currentInstance">Not connected</span>
+                <div class="status-indicator" id="statusIndicator"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner"></div>
+        <p class="loading-text">Loading content...</p>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
