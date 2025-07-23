@@ -1,0 +1,11 @@
+body { margin: 0; font-family: Arial, sans-serif; }
+header { padding: 1rem; background: #222; color: #fff; display: flex; gap: .5rem; }
+header input { flex: 1; padding: .5rem; }
+header button { padding: .5rem 1rem; }
+.container { display: flex; height: calc(100vh - 60px); }
+aside { width: 250px; overflow-y: auto; background: #f4f4f4; }
+#videoList { list-style: none; padding: 0; margin: 0; }
+#videoList li { padding: .5rem; cursor: pointer; border-bottom: 1px solid #ddd; }
+#videoList li:hover { background: #e0e0e0; }
+main { flex: 1; position: relative; }
+iframe { width: 100%; height: 100%; }

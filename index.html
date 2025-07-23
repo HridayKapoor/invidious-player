@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Invidious Playlist Player</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Invidious Playlist Embedder</h1>
+    <input id="playlistUrl" type="text" placeholder="Paste YouTube video or playlist URL here" />
+    <button id="loadBtn">Load</button>
+  </header>
+  <div class="container">
+    <aside id="sidebar">
+      <ul id="videoList"></ul>
+    </aside>
+    <main>
+      <iframe id="player" src="" frameborder="0" allowfullscreen></iframe>
+    </main>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
