@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Invidious Playlist Embedder</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="container py-16">
+      <h1 class="mb-16">Invidious Playlist Embedder</h1>
+
+      <div class="card mb-16">
+        <div class="card__body">
+          <div id="instanceStatus" class="flex items-center gap-8 mb-16">
+            <span id="instanceDot" class="indicator-dot" aria-hidden="true"></span>
+            <span>
+              Active instance:
+              <strong id="activeInstanceName">Scanning...</strong>
+            </span>
+          </div>
+
+          <div class="form-group">
+            <label for="urlInput" class="form-label"
+              >YouTube video or playlist URL</label
+            >
+            <input
+              type="url"
+              id="urlInput"
+              class="form-control"
+              placeholder="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+              required
+            />
+          </div>
+
+          <div class="flex gap-8 items-center mb-16">
+            <button id="loadBtn" class="btn btn--primary">Load</button>
+            <select id="instanceSelect" class="form-control" title="Select instance (optional)">
+              <option value="">Automatic instance</option>
+            </select>
+          </div>
+
+          <div id="statusMessage" class="status status--info hidden">
+            Checking instances, please wait…
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card__body">
+          <iframe
+            id="playerFrame"
+            title="Invidious Player"
+            width="100%"
+            height="480"
+            frameborder="0"
+            allowfullscreen
+            class="hidden"
+          ></iframe>
+        </div>
+      </div>
+    </main>
+
+    <script src="app.js" defer></script>
+  </body>
+</html>
